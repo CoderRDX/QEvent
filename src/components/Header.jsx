@@ -21,7 +21,8 @@ const Header = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (status === "loading") return;
+    if (status === "unauthenticated" && typeof window !== "undefined") {
       router.push("/events");
     }
   }, [status, router]);
